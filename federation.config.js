@@ -5,11 +5,11 @@ module.exports = withNativeFederation({
   name: 'mfe1',
 
   exposes: {
-    './Component': './src/app/app.component.ts',
+    './web-comp': './src/bootstrap.ts',
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' })
   },
 
   skip: [
@@ -22,5 +22,5 @@ module.exports = withNativeFederation({
 
   // Please read our FAQ about sharing libs:
   // https://shorturl.at/jmzH0
-  
+
 });
