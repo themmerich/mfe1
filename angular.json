@@ -18,6 +18,14 @@
 					"builder": "@angular-architects/native-federation:build",
 					"options": {},
 					"configurations": {
+            "standalone": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.standalone.ts"
+                }
+              ]
+            },
 						"production": {
 							"target": "mfe1:esbuild:production"
 						},
@@ -35,8 +43,13 @@
 						"rebuildDelay": 0,
 						"dev": true,
 						"port": 0
-					}
-				},
+					},
+          "configurations": {
+            "standalone": {
+              "target": "mfe1:serve-original:standalone"
+            }
+          }
+        },
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n"
 				},
@@ -85,6 +98,14 @@
 						"scripts": []
 					},
 					"configurations": {
+            "standalone": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.standalone.ts"
+                }
+              ]
+            },
 						"production": {
 							"budgets": [
 								{
@@ -116,7 +137,10 @@
 						},
 						"development": {
 							"buildTarget": "mfe1:esbuild:development"
-						}
+						},
+            "standalone": {
+              "buildTarget": "mfe1:esbuild:standalone"
+            }
 					},
 					"defaultConfiguration": "development",
 					"options": {
